@@ -1,0 +1,24 @@
+<!-- src/app/dashboard/dashboard.component.html -->
+<br>
+<h1>Bienvenido al Dashboard</h1>
+<button (click)="logout()">Cerrar Sesión</button>
+
+<div *ngIf="vehiculos && vehiculos.length > 0; else noVehiculos">
+  <h2>Lista de Vehículos:</h2>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Marca</th>
+      <th>Modelo</th>
+    </tr>
+    <tr *ngFor="let vehiculo of vehiculos">
+      <td>{{ vehiculo.vehiculoid }}</td>
+      <td>{{ vehiculo.marca }}</td>
+      <td>{{ vehiculo.modelo }}</td>
+    </tr>
+  </table>
+</div>
+
+<ng-template #noVehiculos>
+  <p>No hay vehículos disponibles.</p>
+</ng-template>
